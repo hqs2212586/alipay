@@ -22,11 +22,23 @@ http://p.tb.cn/rmsportal_6680_secret_key_tools_RSA_macosx.zip
 提示是否“允许来自任何来源”，点击“允许来自任何来源”。
 
 ### 在服务器上程序执行方法
-- 安装依赖
+安装依赖
 
+```
 $ pip3 install django
-
 $ pip install pycryptodome   # 专门用来做算法加密的
+```
 
-- 运行程序示例
-python3 manage.py runserver 0.0.0.0:80
+运行程序示例
+
+```
+$ python3 manage.py runserver 0.0.0.0:80
+```
+
+### 注意事项
+
+- app_notify_url：如果支付成功，支付宝会向这个地址发送POST请求（因此这个地址必须是公网地址）。 并在这里做校验，是否支付完成。
+
+- return_url：如果支付成功，支付成功后重定向回到你网站的地址（也可以只内网地址）。
+
+- 公钥私钥：用的是商户的私钥和支付宝的公钥来实现的。
